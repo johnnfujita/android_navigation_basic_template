@@ -22,6 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 
 /**
  * Presents how multiple steps flow could be implemented.
@@ -34,12 +35,16 @@ class FlowStepFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-
-        val flowStepNumber = arguments?.getInt("flowStepNumber")
+// not typesafe
+        //val flowStepNumber = arguments?.getInt("flowStepNumber")
 
         // TODO STEP 8 - Use type-safe arguments - remove previous line!
-//        val safeArgs: FlowStepFragmentArgs by navArgs()
-//        val flowStepNumber = safeArgs.flowStepNumber
+    // this was defined in the fragments
+        val safeArgs: FlowStepFragmentArgs by navArgs()
+        // the above code made it accessible to istancing it
+        val flowStepNumber = safeArgs.flowStepNumber
+
+
         // TODO END STEP 8
 
         return when (flowStepNumber) {
